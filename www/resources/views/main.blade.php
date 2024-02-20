@@ -14,14 +14,13 @@
 <div class="content">
     <header
         class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-            <img alt="Logo" src="{{Storage::get('pageContent/logo.png')}}">
-        </a>
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li>
                 <a href="/about" class="nav-link px-2 {{Request::is('/about')?'link-secondary':'link-dark'}}">О нас</a>
-                <a href="/poster" class="nav-link px-2 {{Request::is('/poster')?'link-secondary':'link-dark'}}">Афиша</a>
-                <a href="/findUs" class="nav-link px-2 {{Request::is('/findUs')?'link-secondary':'link-dark'}}">Где нас найти?</a>
+                <a href="/poster"
+                   class="nav-link px-2 {{Request::is('/poster')?'link-secondary':'link-dark'}}">Афиша</a>
+                <a href="/findUs" class="nav-link px-2 {{Request::is('/findUs')?'link-secondary':'link-dark'}}">Где нас
+                    найти?</a>
             </li>
         </ul>
         <div class="col-md-3 text-end">

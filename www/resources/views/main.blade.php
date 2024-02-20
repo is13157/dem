@@ -1,4 +1,4 @@
-@php use Illuminate\Support\Facades\Storage; @endphp
+@php use Illuminate\Support\Facades\Request;use Illuminate\Support\Facades\Storage; @endphp
     <!doctype html>
 <html lang="en">
 <head>
@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Мини-театр "Омега"</title>
 </head>
 <body>
 <div class="content">
@@ -17,6 +17,17 @@
         <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
             <img alt="Logo" src="{{Storage::get('pageContent/logo.png')}}">
         </a>
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li>
+                <a href="/about" class="nav-link px-2 {{Request::is('/about')?'link-secondary':'link-dark'}}">О нас</a>
+                <a href="/poster" class="nav-link px-2 {{Request::is('/poster')?'link-secondary':'link-dark'}}">Афиша</a>
+                <a href="/findUs" class="nav-link px-2 {{Request::is('/findUs')?'link-secondary':'link-dark'}}">Где нас найти?</a>
+            </li>
+        </ul>
+        <div class="col-md-3 text-end">
+            <a type="button" class="btn btn-outline-info me-2">Войти</a>
+            <a type="button" class="btn btn-info">Зарегестрироваться</a>
+        </div>
     </header>
 </div>
 @yield('content')

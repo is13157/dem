@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('perfomances', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('photo');
+            $table->dateTime('date');
+            $table->string('age');
+            $table->integer('price');
+            $table->foreignId('genre');
             $table->timestamps();
         });
     }

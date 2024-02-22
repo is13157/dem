@@ -88,7 +88,8 @@ class PerfomanceController extends Controller
 
     public function about():View
     {
-        return view('about');
+        $perfomances = Perfomance::latest()->take(5)->get();
+        return view('about', compact('perfomances'));
     }
 
     public function findUs():View

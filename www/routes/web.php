@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PerfomanceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/about', [PerfomanceController::class, 'about']);
+Route::get('/findUs', [PerfomanceController::class, 'findUs']);
+Route::resource('perfomance',PerfomanceController::class);

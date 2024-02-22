@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Perfomance;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class PerfomanceController extends Controller
 {
@@ -12,9 +13,10 @@ class PerfomanceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index():View
     {
-        //
+        $perfomances = Perfomance::all();
+        return view('poster', compact('perfomances'));
     }
 
     /**
@@ -33,9 +35,10 @@ class PerfomanceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request):View
     {
-        //
+        $perfomance = Perfomance::find($request);
+        return view('prefomance', compact($perfomance));
     }
 
     /**
@@ -46,7 +49,7 @@ class PerfomanceController extends Controller
      */
     public function show(Perfomance $perfomance)
     {
-        //
+
     }
 
     /**
@@ -81,5 +84,15 @@ class PerfomanceController extends Controller
     public function destroy(Perfomance $perfomance)
     {
         //
+    }
+
+    public function about():View
+    {
+        return view('about');
+    }
+
+    public function findUs():View
+    {
+        return view('findUs');
     }
 }

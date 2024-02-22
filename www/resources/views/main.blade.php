@@ -1,4 +1,4 @@
-@php use Illuminate\Support\Facades\Request;use Illuminate\Support\Facades\Storage; @endphp
+@php use Illuminate\Support\Facades\Auth;use Illuminate\Support\Facades\Request;use Illuminate\Support\Facades\Storage; @endphp
     <!doctype html>
 <html lang="en">
 <head>
@@ -30,10 +30,20 @@
                     найти?</a>
             </li>
         </ul>
-        <div class="col-md-3 text-end">
-            <a type="button" class="btn btn-outline-info me-2">Войти</a>
-            <a type="button" class="btn btn-info">Зарегестрироваться</a>
-        </div>
+        @auth()
+            <div class="col-md-3 text-end">
+                <a type="button" class="btn btn-outline-info me-2"></a>
+                @if(Auth::user()?->isAdmin == 1)
+                    <a type="button" class="btn btn-info"></a>
+                @endif
+            </div>
+        @endauth
+        @guest()
+            <div class="col-md-3 text-end">
+                <a type="button" class="btn btn-outline-info me-2">Войти</a>
+                <a type="button" class="btn btn-info">Зарегестрироваться</a>
+            </div>
+        @endguest
     </header>
 </div>
 <div class="content">

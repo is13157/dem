@@ -1,8 +1,8 @@
-@php use App\Models\Perfomance;use Illuminate\Support\Facades\Storage; @endphp
+@php use App\Models\Perfomance;@endphp
 @extends('main')
 @section('content')
     <div class="d-flex flex-column justify-content-center align-items-center"> {{-- logo+slogan --}}
-        <img class="" alt="" src="{{Storage::get('pageContent/logo.svg')}}">
+        <img class="" alt="" src="{{asset('storage/logo.png')}}">
         <p>Девиз театра</p>
     </div>
     <div id="carousel" class="carousel slide mt-3" data-bs-ride="carousel"> {{-- slider --}}
@@ -17,7 +17,7 @@
         <div class="carousel-inner">
             @foreach($perfomances as $perfomance)
                 <div class="carousel-item @if(Perfomance::latest()->get()) active @endif">
-                    <img src="{{$perfomance->photo}}" class="d-block w-100" alt="">
+                    <a href="/perfomance/{{$perfomance->id}}"><img src="{{$perfomance->photo}}" class="d-block w-100" alt=""></a>
                 </div>
             @endforeach
         </div>

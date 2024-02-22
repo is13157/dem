@@ -20,7 +20,7 @@
                 <a href="/poster"
                    class="nav-link px-2 {{Request::is('/poster')?'link-secondary':'link-dark'}}">Афиша</a>
                 <a href="/findUs" class="nav-link px-2 {{Request::is('/findUs')?'link-secondary':'link-dark'}}">Где нас
-                    найти?</a>
+                    найти?</a>`
             </li>
         </ul>
         <div class="col-md-3 text-end">
@@ -29,7 +29,9 @@
         </div>
     </header>
 </div>
-@yield('content')
+<div class="content">
+    @yield('content')
+</div>
 <div class="content">
     <footer>
 

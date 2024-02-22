@@ -5,13 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Genre extends Model
 {
     use HasFactory;
 
-    public function perfomance():BelongsTo
+    protected $guarded = ['id'];
+
+    public function perfomance():BelongsToMany
     {
-        return $this->belongsTo(Perfomance::class);
+        return $this->belongsToMany(Perfomance::class);
     }
 }

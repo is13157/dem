@@ -10,6 +10,8 @@ class Age extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     public function perfomance():BelongsTo
     {
         return $this->belongsTo(Perfomance::class);

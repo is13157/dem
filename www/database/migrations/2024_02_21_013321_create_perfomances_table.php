@@ -20,7 +20,6 @@ return new class extends Migration
             $table->dateTime('date');
             $table->string('age');
             $table->integer('price');
-            $table->foreignId('genre');
             $table->timestamps();
         });
     }

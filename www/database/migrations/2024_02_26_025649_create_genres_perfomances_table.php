@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('genres_to_perfomances', function (Blueprint $table) {
+        Schema::create('genres_perfomances', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('perfomances')->constrained();
-            $table->foreignId('genres')->constrained();
+            $table->foreignId('genres_id')->constrained();
+            $table->foreignId('perfomances_id')->constrained();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('genres_to_perfomances');
+        Schema::dropIfExists('genres_perfomances');
     }
 };

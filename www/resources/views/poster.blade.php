@@ -23,6 +23,19 @@
                         <th class="sorting sorting-asc col-sm-2" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Genres">Genres</th>
                     </tr>
                     </thead>
+                    <tbody>
+                    @foreach($perfomances as $perfomance)
+                        <tr>
+                            <td class="sorting_1">{{$perfomance->name}}</td>
+                            <td><img src="{{$perfomance->photo}}" class="d-block w-100" alt=""></td>
+                            <td>{{$perfomance->date}}</td>
+                            <td>{{$perfomance->age}}</td>
+                            <td>{{$perfomance->price}}</td>
+                            <td>{{$perfomance->genre}}</td>
+                        </tr>
+                    @endforeach
+
+                    </tbody>
                 </table>
             </div>
         </div>

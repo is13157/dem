@@ -35,10 +35,9 @@ class PerfomanceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request):View
+    public function store(Request $request)
     {
-        $perfomance = Perfomance::find($request);
-        return view('prefomance', compact($perfomance));
+
     }
 
     /**
@@ -47,9 +46,11 @@ class PerfomanceController extends Controller
      * @param  \App\Models\Perfomance  $perfomance
      * @return \Illuminate\Http\Response
      */
-    public function show(Perfomance $perfomance)
+    public function show(Perfomance $perfomance):View
     {
-
+        return view('prefomance', [
+            'perfomance' => $perfomance,
+        ]);
     }
 
     /**
@@ -96,4 +97,5 @@ class PerfomanceController extends Controller
     {
         return view('findUs');
     }
+
 }

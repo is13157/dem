@@ -15,6 +15,6 @@ class Genre extends Model
 
     public function perfomance():BelongsToMany
     {
-        return $this->belongsToMany(Perfomance::class);
+        return $this->belongsToMany(Perfomance::class, 'genres_perfomances');
     }
 }

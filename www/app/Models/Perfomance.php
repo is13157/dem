@@ -16,7 +16,7 @@ class Perfomance extends Model
 
     public function genre():BelongsToMany
     {
-        return $this->belongsToMany(Genre::class);
+        return $this->belongsToMany(Genre::class, 'genres_perfomances');
     }
 
     public function age():HasOne

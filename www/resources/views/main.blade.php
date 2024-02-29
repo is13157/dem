@@ -41,7 +41,7 @@
         @guest()
             <div class="col-md-3 text-end">
                 <a type="button" class="btn btn-outline-info me-2">Войти</a>
-                <a type="button" class="btn btn-info">Зарегестрироваться</a>
+                <a type="button" class="btn btn-info" href="/registration">Зарегестрироваться</a>
             </div>
         @endguest
     </header>

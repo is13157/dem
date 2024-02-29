@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Age;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class UserController extends Controller
 {
@@ -12,50 +14,42 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function authentication():View
+    {
+        return view('user.authentication');
+    }
+
+    public function login()
     {
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function registration():View
     {
-        //
+        return view('user.registration');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function registrate(Request $request)
     {
-        //
-    }
+        $data = $request->validate([
+            'name' => '',
+            'surname' => '',
+            'patronymic' => '',
+            'login' => 'unique:users',
+            'email' => 'unique:users',/*email:rfc,dns*/
+            'password' => 'required_with:password_confirmation|same:password_confirmation',
+            'password_confirmation' => '',
+            'rules' => '',
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Age  $age
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Age $age)
-    {
-        //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Age  $age
+     * @param  \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Age $age)
+    public function edit(User $user)
     {
         //
     }
@@ -64,10 +58,10 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Age  $age
+     * @param  \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Age $age)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -75,10 +69,10 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Age  $age
+     * @param  \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Age $age)
+    public function destroy(User $user)
     {
         //
     }

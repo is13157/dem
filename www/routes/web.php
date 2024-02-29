@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PerfomanceController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +20,6 @@ Route::get('/', function () {
 });
 Route::get('/about', [PerfomanceController::class, 'about']);
 Route::get('/findUs', [PerfomanceController::class, 'findUs']);
+Route::get('/registration', [UserController::class, 'registration']);
+Route::post('/register', [UserController::class, 'registrate']);
 Route::resource('perfomance',PerfomanceController::class);

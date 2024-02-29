@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Age;
+use App\Models\Genre;
 use App\Models\Perfomance;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -24,9 +26,11 @@ class PerfomanceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create():View
     {
-        //
+        $ages = Age::all();
+        $genres = Genre::all();
+        return view('admin.perfomance.create', compact('ages', 'genres'));
     }
 
     /**
@@ -48,9 +52,8 @@ class PerfomanceController extends Controller
      */
     public function show(Perfomance $perfomance):View
     {
-        return view('prefomance', [
-            'perfomance' => $perfomance,
-        ]);
+        $perfomance = Perfomance::find($perfomance->id);
+        return view('prefomance', compact('perfomance'));
     }
 
     /**
